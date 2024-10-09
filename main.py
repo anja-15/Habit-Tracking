@@ -9,15 +9,14 @@ headers = {
 }
 
 pixela_endpoint = "https://pixe.la/v1/users"
-# user_parameters looks like a json file
+
 user_parameters = {
     "token": TOKEN,
     "username": USERNAME ,
     "agreeTermsOfService": "yes",
     "notMinor": "yes"
 }
-# response = requests.post(url=pixela_endpoint, json=user_parameters)
-# print(response.text)
+response = requests.post(url=pixela_endpoint, json=user_parameters)
 
 graph_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs"
 graph_config = {
@@ -27,8 +26,7 @@ graph_config = {
     "type": "float",
     "color": "ajisai"
 }
-# response = requests.post(url=graph_endpoint, json=graph_config, headers=headers)
-# print(response.text)
+response = requests.post(url=graph_endpoint, json=graph_config, headers=headers)
 
 """PIXEL_CREATION"""
 pixel_creation_endpoint = f"{graph_endpoint}/{GRAPH_ID}"
@@ -39,8 +37,7 @@ pixel_config ={
     "date": formatted_today,
     "quantity": input("How many KMs did you cycle today? "),
 }
-# response = requests.post(url=pixel_creation_endpoint, json=pixel_config, headers=headers)
-# print(response.text)
+response = requests.post(url=pixel_creation_endpoint, json=pixel_config, headers=headers)
 
 """UPDATE"""
 update_pixel_endpoint = f"{graph_endpoint}/{GRAPH_ID}/{formatted_today}"
@@ -57,5 +54,5 @@ delete_pixel_endpoint = f"{graph_endpoint}/{GRAPH_ID}/{formatted_today}"
 delete_pixel_config ={
     "quantity": "5",
 }
-response = requests.delete(url=delete_pixel_endpoint,headers=headers)
-print(response.text)
+# response = requests.delete(url=delete_pixel_endpoint,headers=headers)
+# print(response.text)
