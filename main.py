@@ -30,7 +30,6 @@ response = requests.post(url=graph_endpoint, json=graph_config, headers=headers)
 
 """PIXEL_CREATION"""
 pixel_creation_endpoint = f"{graph_endpoint}/{GRAPH_ID}"
-# or f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}"
 today = datetime.now()
 formatted_today = today.strftime("%Y%m%d")
 pixel_config ={
